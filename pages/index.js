@@ -5,7 +5,7 @@ export default function Index() {
  
   return (
     <Layout>
-        <Indexs/>
+        {/* <Indexs/> */}
     </Layout>
   )
 }

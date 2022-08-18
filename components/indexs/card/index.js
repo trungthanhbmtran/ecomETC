@@ -1,9 +1,23 @@
 
-import { Button, Card, CardMedia, Grid, Typography } from '@mui/material';
+import { Button, Card, CardMedia, Grid, Typography,Modal,Box } from '@mui/material';
 // import CardComponent from './card';
 import Carousel from 'react-material-ui-carousel';
+import { useState } from 'react';
+import useModal from '../../../hooks/useModal';
+import BasicModal from '../../modal';
 // import Link from '../../../lib/Link';
 
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
 const items = [
     {
@@ -73,7 +87,7 @@ const ActionAreaCard = () => {
                 next={(now, previous) => console.log(`Next User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
                 prev={(now, previous) => console.log(`Prev User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
                 onChange={(now, previous) => console.log(`OnChange User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
-                
+
                 // navButtonsProps={{style: {backgroundColor: 'cornflowerblue', borderRadius: 0}}}
                 // navButtonsWrapperProps={{style: {bottom: '0', top: 'unset', }}}
                 // indicatorContainerProps={{style: {margin: "20px"}}}
@@ -88,17 +102,17 @@ const ActionAreaCard = () => {
                     })
                 }
             </Carousel>
-            <br/>
+            <br />
         </div>
     );
 }
 
 const Banner = (props) => {
+    const [open,setOpen] = useModal(false);
     const contentPosition = props.contentPosition ? props.contentPosition : "left"
-    const totalItems =   props.length ? props.length : 3;
-    const mediaLength = totalItems ;
+    const totalItems = props.length ? props.length : 3;
+    const mediaLength = totalItems;
     let items = [];
-
 
     // const content = (
     //     <Grid item xs={4} key="content">
@@ -123,7 +137,7 @@ const Banner = (props) => {
             <Grid item xs={4} key={item.Name}>
                 <CardMedia
                     className="Media"
-                    sx={{height:'300px'}}
+                    sx={{ height: '300px' }}
                     image={item.Image}
                     title={item.Name}
                 >
@@ -131,13 +145,18 @@ const Banner = (props) => {
                         {item.Name}
                     </Typography>
                     <Button variant="contained" className="ViewButton" onClick={() => alert(item.Name)}>
-                       Chi tiết
+                        Chi tiết
+                    </Button>
+                    <Button variant="contained" className="ViewButton" onClick={setOpen}>
+                        Chi tiết
                     </Button>
                 </CardMedia>
-               
-                
+
                 {/* <CardComponent tittle={props.item.Name} ></CardComponent> */}
+                <BasicModal open={open} togle={setOpen} image={item.Image} title={item.Name}/>
+
             </Grid>
+            
         )
 
         items.push(media);
@@ -156,6 +175,7 @@ const Banner = (props) => {
             <Grid container spacing={0} className="BannerGrid">
                 {items}
             </Grid>
+            {/* <BasicModal open={open} togle={setOpen} image={item.Image} title={item.Name}/> */}
         </Card>
     )
 }

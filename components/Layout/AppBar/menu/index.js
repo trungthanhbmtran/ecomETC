@@ -12,8 +12,8 @@ const MenuItem = ({ item }) => {
 
 const SingleLevel = ({ item }) => {
   return (
-    <Link href={`${item.path}`} color="rgb(255,223,0)" underline="hover" passHref>
-      <ListItem button component="a">
+    <Link href={`${item.path}`} color="rgb(255,223,0)" underline="hover"   passHref>
+      <ListItem button component="a" >
         <ListItemIcon >{item.icon}</ListItemIcon>
         <ListItemText primary={item.title} />
       </ListItem>

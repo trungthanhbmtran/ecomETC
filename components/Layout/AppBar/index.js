@@ -17,6 +17,7 @@ import Image from 'next/image';
 import MaterialUICollapseMenu from './menu/index';
 import { menu } from '../../../data/menu';
 import MenuItem from './menu/index';
+import { Grid, Typography } from '@mui/material';
 
 const drawerWidth = 240;
 // const navItems = [
@@ -143,7 +144,7 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {/* {navItems.map((item,i) => <Menu key={i} item={item}/>)} */}
-        { menu.map((item, key) => <MenuItem key={key} item={item} />)}   
+        {menu.map((item, key) => <MenuItem key={key} item={item} />)}
         {/* {navItems.map((list,listIndex) => {
       }
       )} */}
@@ -163,66 +164,80 @@ function DrawerAppBar(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav">
-        <Toolbar >
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* <Typography
+    <Grid container >
+      <Grid item xs={12} sx={{ backgroundColor: "red" }}>
+        <Link href="/" underline="none" >
+          <Image src="/logo.png" width={160} height={80} alt="logo mobile"  ></Image>
+          {/* <Image src="/logo.png" width={80} height={80}></Image> */}
+        </Link>
+      </Grid>
+      <Grid item xs={12} sx={{ backgroundColor: "yellow" }}>
+        <AppBar component="nav" position="fixed" sx={{ mt : 10}} >
+          <Toolbar >
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            {/* <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
             MUI
           </Typography> */}
-          <Link href="/" underline="none" sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Image src="/logo.png" width={160} height={80} alt="logo "  ></Image>
-            {/* <Image src="/logo.png" width={80} height={80}></Image> */}
-          </Link>
-          {/* <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+
+            {/* <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
                 {item}
               </Button>
             ))}
           </Box> */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/* {navItems.map((item,i) => <Menu key={i} item={item}/>)} */}
-            { menu.map((item, key) => <MenuItem key={key} item={item} />)}   
-             </Box>
-          <Box sx={{ flexGrow: 1, display: { md: 'none' } }}>
-          </Box>
-          <Tooltip title="Open search"  >
-            <IconButton size="large" aria-label="search" color="inherit" edge="end" >
-              <SearchIcon />
-            </IconButton>
-          </Tooltip>
-        </Toolbar>
-      </AppBar>
-      <Box component="nav" >
-        <Drawer
-          container={container}
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-    </Box>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              {/* {navItems.map((item,i) => <Menu key={i} item={item}/>)} */}
+              {menu.map((item, key) => <MenuItem key={key} item={item} />)}
+            </Box>
+            <Box sx={{ flexGrow: 1, display: { md: 'none' } }}>
+            </Box>
+            <Box component="nav" >
+              <Drawer
+                container={container}
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                ModalProps={{
+                  keepMounted: true, // Better open performance on mobile.
+                }}
+                sx={{
+                  display: { xs: 'block', sm: 'none' },
+                  '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                }}
+              >
+                {drawer}
+              </Drawer>
+            </Box>
+            <Tooltip title="Open search"  >
+              <IconButton size="large" aria-label="search" color="inherit" edge="end" >
+                <SearchIcon />
+              </IconButton>
+            </Tooltip>
+          </Toolbar>
+        </AppBar>
+      </Grid>
+      <Grid item xs={12} sx={{ backgroundColor: "green" }}>
+      <Toolbar id="back-to-top-anchor" />
+        {props.children}
+      </Grid>
+    </Grid>
+    // <Box sx={{ display: 'flex' , just }}>
+    //     <Typography>111111111111</Typography>
+
+
+    // </Box>
   );
 }
 
