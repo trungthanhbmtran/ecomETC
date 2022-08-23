@@ -18,6 +18,7 @@ const style = {
 };
 
 export default function BasicModal({open,togle,product}) {
+  // console.log('product',product)
   return (
     <div>
       <Modal
@@ -29,9 +30,9 @@ export default function BasicModal({open,togle,product}) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-          {product.name}
+          {product.Name}
           </Typography>
-            <Image src={product.image} width={200} height={200} layout='intrinsic' />
+            {/* <Image src={product.image} width={200} height={200} layout='intrinsic' /> */}
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
            Miêu tả đây
           </Typography>
