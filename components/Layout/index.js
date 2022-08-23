@@ -30,7 +30,8 @@ import BackToTop from './ScrollOnTop';
 import { slideData } from '../../data/slidedata';
 import BoxInfo from '../indexs/boxinfo';
 import { Container } from '@mui/system';
-
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -178,6 +179,9 @@ const StyledFab = styled(Fab)({
 });
 
 export default function Layout(props) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -216,26 +220,27 @@ export default function Layout(props) {
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
+  console.log(matches);
   return (
     <Container maxWidth="false" >
       <div id="back-to-top-anchor" />
-      <Grid container sx={{ backgroundColor: "green" }} >
-        <Grid item xs={1}>
-          <Link href="/" underline="none" sx={{ display: { sm: 'block' } }}>
-            <Image src="/logo.png" width={160} height={80} alt="logo "  ></Image>
-            {/* <Image src="/logo.png" width={80} height={80}></Image> */}
+      <Grid container sx={{ backgroundColor: "green", padding: "10px" }} >        
+        <Grid item xs={5}>
+        <Link href="/" underline="none" sx={{ display: { sm: 'block' } }}>
+          {
+            matches == false ? 
+            <Image src="/logo-text.png" width={700} height={106.05} alt="logo "  ></Image> :            
+            <Image src="/logo.png" width={160} height={80} alt="logo "  ></Image>            
+            
+            // <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}>
+            //   Công ty cổ phần thí nghiệm điện Việt Nam
+            //   VN ETC
+            // </Typography>
+          }
           </Link>
-        </Grid>
-        <Grid item xs={4}>
-          <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}>
-            Công ty cổ phần thí nghiệm điện Việt Nam
-            VN ETC
-          </Typography>
+          
         </Grid>
         <Grid item xs={7}>
-          <Typography backgroundColor="yellow">1</Typography>
-          <Typography backgroundColor="green">2</Typography>
-          <Typography backgroundColor="red">3</Typography>
         </Grid>
       </Grid>
       <List sx={{ mb: 2 }}>

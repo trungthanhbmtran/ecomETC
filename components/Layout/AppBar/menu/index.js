@@ -11,10 +11,13 @@ const MenuItem = ({ item }) => {
 };
 
 const SingleLevel = ({ item }) => {
-  return (
+    return (
     <Link href={`${item.path}`} color="rgb(255,223,0)" underline="hover"   passHref>
       <ListItem button component="a" >
-        <ListItemIcon >{item.icon}</ListItemIcon>
+        {
+          item.icon != undefined &&
+          <ListItemIcon >{item.icon}</ListItemIcon>
+        }        
         <ListItemText primary={item.title} />
       </ListItem>
     </Link>
@@ -31,12 +34,23 @@ const MultiLevel = ({ item }) => {
 
   return (
     <Box >
-      <ListItem button  component="a" onClick={handleClick}>
-      <ListItemIcon>{item.icon}</ListItemIcon>
+      <ListItem button  component="a" onClick={handleClick} sx={{color: 'rgb(255,223,0)'}}>
+        {
+          item.icon != undefined &&
+          <ListItemIcon >{item.icon}</ListItemIcon>
+        } 
         <ListItemText  primary={item.title} />
         {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
+      <Collapse in={open} timeout="auto" unmountOnExit 
+        sx={{          
+          position: 'absolute',
+          backgroundColor: 'rgb(153,0,0)',
+          zIndex: 1,
+          width: '200px',
+          color: 'rgb(255,223,0)'
+        }}
+      >
         <List component="div" disablePadding sx={{ pl: 4 }}>
           {children.map((child, key) => (
             <MenuItem key={key} item={child} />
