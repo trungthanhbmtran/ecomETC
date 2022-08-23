@@ -17,8 +17,7 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({open,togle,image,title}) {
-
+export default function BasicModal({open,togle,product}) {
   return (
     <div>
       <Modal
@@ -30,9 +29,9 @@ export default function BasicModal({open,togle,image,title}) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {title}
+          {product.name}
           </Typography>
-          <Image src={image} width={900} height={900} layout='intrinsic' />
+            <Image src={product.image} width={200} height={200} layout='intrinsic' />
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
            Miêu tả đây
           </Typography>

@@ -239,9 +239,7 @@ export default function Layout(props) {
         </Grid>
       </Grid>
       <List sx={{ mb: 2 }}>
-        {messages.map(({ id, primary, secondary, person }) => (
-          <Fragment key={id}>
-            {id === 1 && (
+          <Fragment >
               <ListSubheader sx={{ bgcolor: 'background.paper' }}>
                 <AppBar position='absolute' color="primary" >
                   
@@ -269,8 +267,6 @@ export default function Layout(props) {
                   </Toolbar>
                 </AppBar>
               </ListSubheader>
-
-            )}
             <Box component="nav" >
               <Drawer
                 container={container}
@@ -287,14 +283,8 @@ export default function Layout(props) {
                 {drawer}
               </Drawer>
             </Box>
-            <Stack
-                direction='column'
-                divider={<Divider />}
-                spacing={2}>
-                {slideData.map(e => <BoxInfo key={e.id} tittle={e.tittle} path={e.path} component={e.component} />)}
-            </Stack>
+            {props.children}
           </Fragment>
-        ))}
         <Footer/>
         <BackToTop/>
       </List>
