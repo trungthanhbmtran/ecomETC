@@ -33,7 +33,7 @@ const MultiLevel = ({ item }) => {
   };
 
   return (
-    <Box >
+    <Box sx={{color: 'rgb(255,223,0)'}}>
       <ListItem button component="a" onClick={handleClick}>
         {
           item.icon != undefined &&
@@ -42,7 +42,14 @@ const MultiLevel = ({ item }) => {
         <ListItemText primary={item.title} />
         {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
+      <Collapse in={open} timeout="auto" unmountOnExit
+        sx={{
+          position: 'absolute',
+          backgroundColor: 'rgb(153,0,0)',
+          zIndex: 1,
+          width: '200px',
+          color: 'rgb(255,223,0)'
+        }}>
         <List component="div" disablePadding sx={{ pl: 4 }}>
           {children.map((child, key) => (
             <MenuItem key={key} item={child} />

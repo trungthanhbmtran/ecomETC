@@ -27,7 +27,6 @@ export default function Layout({ children }) {
       <Box>
         {children}
       </Box>
-
       <BackToTop />
       <Footer />
       <AnimationIcon />
