@@ -3,6 +3,7 @@ import { Divider, Stack } from '@mui/material';
 import Layout from '../components/Layout'
 import { slideData } from '../data/slidedata';
 import BoxInfo from '../components/indexs/boxinfo';
+import SlideImages from '../components/indexs/SlideImages';
 
 export default function Index() {
  
@@ -13,6 +14,7 @@ export default function Index() {
                 direction='column'
                 divider={<Divider />}
                 spacing={2}>
+
                 {slideData.map(e => <BoxInfo key={e.id} tittle={e.tittle} path={e.path} component={e.component} />)}
             </Stack>
     </Layout>
