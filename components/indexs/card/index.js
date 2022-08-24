@@ -1,6 +1,6 @@
 
 import { Button, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
-import CardComponent from './card';
+// import CardComponent from '../../ContainerComponents/card';
 import Carousel from 'react-material-ui-carousel';
 
 
@@ -8,6 +8,7 @@ const items = [
     {
         Name: "Điện mặt trời TNHH Gia Thành",
         Caption: "Địa chỉ tại cư mgar",
+        Image: "https://source.unsplash.com/featured/?macbook",
         contentPosition: "left",
         Items: [
             {

@@ -23,7 +23,7 @@ return(
                         borderBottomLeftRadius: '50%',
                         borderTopRightRadius: '50%',
                         borderBottomRightRadius: '4px',
-                        top: '70%',
+                        top: '60%',
                         position: 'fixed',
                         right: 20,
                         zIndex: theme.zIndex.speedDial

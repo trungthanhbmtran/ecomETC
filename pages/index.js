@@ -1,5 +1,5 @@
 import { Divider, Stack } from '@mui/material';
-import Indexs from '../components/indexs'
+// import Indexs from '../components/indexs'
 import Layout from '../components/Layout'
 import { slideData } from '../data/slidedata';
 import BoxInfo from '../components/indexs/boxinfo';
