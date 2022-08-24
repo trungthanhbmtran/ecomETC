@@ -12,17 +12,20 @@ import AppBar from './AppBar';
 import DrawerAppBar from './Drawer';
 
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
 
   return (
     <Box maxWidth="false" >
       <div id="back-to-top-anchor" />
-      <Header/>
-             <AppBar/>
-              <DrawerAppBar />
-                {children}
-             <BackToTop/>
-      <Footer/>
+      <Header />
+      <AppBar />
+      <DrawerAppBar />
+      <Box>
+        {children}
+      </Box>
+
+      <BackToTop />
+      <Footer />
       <AnimationIcon />
       <IconTool />
     </Box>
