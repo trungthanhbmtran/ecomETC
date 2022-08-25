@@ -11,7 +11,7 @@ import Header from './Header';
 import AppBar from './AppBar';
 import DrawerAppBar from './Drawer';
 import { useTheme } from "@mui/material/styles";
-import { useMediaQuery } from "@mui/material";
+import { Container, useMediaQuery } from "@mui/material";
 
 export default function Layout({ children }) {
   const theme = useTheme();
@@ -19,14 +19,14 @@ export default function Layout({ children }) {
   console.log(matches);
 
   return (
-    <Box maxWidth="false" >
+    <Box >
       <div id="back-to-top-anchor" />
       <Header matches={matches}/>
       <AppBar />
       <DrawerAppBar />
-      <Box>
-        {children}
-      </Box>
+        <Box sx={{ position : 'relative' , mt : 8}}>
+           {children}
+        </Box>
       <BackToTop />
       <Footer />
       <AnimationIcon />

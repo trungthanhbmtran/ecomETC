@@ -7,7 +7,7 @@ import SlideImages from "../components/indexs/SlideImages";
 import WorkDone from "../components/indexs/workdone";
 
 export const slideData = [
-    { id: 0, tittle: 'VỀ CHÚNG TÔI', path: './aboutus', component: <SlideImages/> },
+    // { id: 0, tittle: 'VỀ CHÚNG TÔI', path: './aboutus', component: <SlideImages/> },
     { id: 1, tittle: 'VỀ CHÚNG TÔI', path: './aboutus', component: <About /> },
     // { id: 1, tittle: 'LĨNH VỰC HOẠT ĐỘNG', path: './aboutus', component: <ActionAreaCard/> },
     { id: 2, tittle: 'Tuyên Ngôn Doanh Nghiệp', path: './aboutus', component: <Commit/> },
