@@ -4,6 +4,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { hasChildren } from "../../../../lib/utils/utils";
 import Link from "../../../../lib/Link";
+import { Colors } from "../../../../lib/theme";
 
 const MenuItem = ({ item }) => {
   const Component = hasChildren(item) ? MultiLevel : SingleLevel;
@@ -12,7 +13,7 @@ const MenuItem = ({ item }) => {
 
 const SingleLevel = ({ item }) => {
   return (
-    <Link href={`${item.path}`} color="rgb(255,223,0)" underline="hover" passhref="true">
+    <Link href={`${item.path}`} color={Colors.yellow} underline="hover" passhref="true">
       <ListItem button component="a" >
         {
           item.icon != undefined &&
@@ -33,7 +34,7 @@ const MultiLevel = ({ item }) => {
   };
 
   return (
-    <Box sx={{color: 'rgb(255,223,0)'}}>
+    <Box sx={{color: Colors.yellow}}>
       <ListItem button component="a" onClick={handleClick}>
         {
           item.icon != undefined &&
@@ -45,10 +46,10 @@ const MultiLevel = ({ item }) => {
       <Collapse in={open} timeout="auto" unmountOnExit
         sx={{
           position: 'absolute',
-          backgroundColor: 'rgb(153,0,0)',
+          backgroundColor: Colors.primary,
           zIndex: 1,
           width: '200px',
-          color: 'rgb(255,223,0)'
+          color: Colors.yellow
         }}>
         <List component="div" disablePadding sx={{ pl: 4 }}>
           {children.map((child, key) => (

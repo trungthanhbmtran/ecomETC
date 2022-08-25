@@ -6,8 +6,7 @@ import Link from '../../../lib/Link';
 import MenuItem from '../AppBar/menu/index';
 import { useDispatch,useSelector } from "react-redux";
 import * as Actions from '../../../redux/Actions'
-
-const drawerWidth = 240;
+import { DrawerWidth } from '../../../lib/theme';
 
  const DrawerAppBar = (props) =>{
     const { window } = props;
@@ -62,7 +61,7 @@ const drawerWidth = 240;
                 }}
                 sx={{
                     display: { xs: 'block', sm: 'none' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DrawerWidth },
                 }}
             >
                 {drawer}
