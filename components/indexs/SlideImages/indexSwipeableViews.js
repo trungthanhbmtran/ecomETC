@@ -31,7 +31,7 @@ const SlideImages = () => {
     };
 
     return (
-        <Box sx={{ my: 0 }}>
+        <Box sx={{ my: 0}}>
     {/* {[...new Array(12)]
       .map(
         () => `Cras mattis consectetur purus sit amet fermentum.

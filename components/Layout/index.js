@@ -10,20 +10,23 @@ import { Box } from '@mui/system';
 import Header from './Header';
 import AppBar from './AppBar';
 import DrawerAppBar from './Drawer';
-
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
 export default function Layout({ children }) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  console.log(matches);
 
   return (
     <Box maxWidth="false" >
       <div id="back-to-top-anchor" />
-      <Header />
+      <Header matches={matches}/>
       <AppBar />
       <DrawerAppBar />
       <Box>
         {children}
       </Box>
-
       <BackToTop />
       <Footer />
       <AnimationIcon />

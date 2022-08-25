@@ -19,7 +19,7 @@ import * as Actions from '../../../redux/Actions'
 function AppBar() {
   const dispatch = useDispatch();
   return (
-    <ListSubheader sx={{ bgcolor: 'background.paper' }}>
+    <ListSubheader sx={{ bgcolor: 'background.paper', zIndex:999 }}>
       <AppBarMUI position='absolute' color="primary" >
         <Toolbar>
           <IconButton
