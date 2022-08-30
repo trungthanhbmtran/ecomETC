@@ -19,11 +19,12 @@ export default function Header(props) {
                 }
                 </Link>            
             </Grid>
-            <Grid item xs={7}>
+
+            {/* <Grid item xs={7}>
                 <Typography backgroundColor="yellow">1</Typography>
                 <Typography backgroundColor="green">2</Typography>
                 <Typography backgroundColor="red">3</Typography>
-            </Grid>
+            </Grid> */}
         </Grid>
         )
 }
