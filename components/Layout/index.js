@@ -18,15 +18,15 @@ import { useMediaQuery } from "@mui/material";
 export default function Layout({ children }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(matches);
+  // console.log(matches);
 
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+  // const Item = styled(Paper)(({ theme }) => ({
+  //   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  //   ...theme.typography.body2,
+  //   padding: theme.spacing(1),
+  //   textAlign: 'center',
+  //   color: theme.palette.text.secondary,
+  // }));
 
   return (
     <Box >
@@ -34,15 +34,13 @@ export default function Layout({ children }) {
       <Header matches={matches} />
       <AppBar />
       <DrawerAppBar />
-      <Box>
-        <Box>
-        {children}
-        </Box>
+      <Box sx={{ position : 'relative' , mt : 10 , mb :2}}>
+          {children}
       </Box>
       <BackToTop />
       <Footer />
       <AnimationIcon />
       <IconTool />
-    </Box>
+    </Box >
   );
 }
