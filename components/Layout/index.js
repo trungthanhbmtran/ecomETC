@@ -29,7 +29,7 @@ export default function Layout({ children }) {
   }));
 
   return (
-    <Box maxWidth="false" >
+    <Box >
       <div id="back-to-top-anchor" />
       <Header matches={matches} />
       <AppBar />

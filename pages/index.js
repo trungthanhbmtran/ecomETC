@@ -14,7 +14,7 @@ export default function Index() {
                 direction='column'
                 divider={<Divider />}
                 spacing={2}>
-
+                <SlideImages/>
                 {slideData.map(e => <BoxInfo key={e.id} tittle={e.tittle} path={e.path} component={e.component} />)}
             </Stack>
     </Layout>

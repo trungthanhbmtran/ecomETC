@@ -35,7 +35,7 @@ function AppBar() {
             {/* {navItems.map((item,i) => <Menu key={i} item={item}/>)} */}
             {menu.map((item, key) => <MenuItem key={key} item={item} />)}
           </Box>
-          <Box sx={{ flexGrow: 1, backgroundColor: "yellow" }} />
+          <Box sx={{ flexGrow: 1}} />
           <IconButton color="inherit">
             <SearchIcon />
           </IconButton>
