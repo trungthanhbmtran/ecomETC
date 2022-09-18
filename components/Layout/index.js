@@ -14,6 +14,7 @@ import DrawerAppBar from './Drawer';
 import { useTheme, styled } from "@mui/material/styles";
 import Paper from '@mui/material/Paper';
 import { useMediaQuery } from "@mui/material";
+import * as Actions from '../../redux/Actions'
 
 export default function Layout({ children }) {
   const theme = useTheme();
