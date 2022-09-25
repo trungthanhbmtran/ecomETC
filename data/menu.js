@@ -2,18 +2,18 @@
 export const menu = [
   {
     title: "Trang Chủ",
-    path: "/"
+    url: "/"
   },
   {
     title: "Giới thiệu",
-    path: "/aboutus"
+    url: "/aboutus"
   },
   {
     title: "Dịch vụ - Sản phẩm",
-    items: [
+    submenu: [
       {
         title: "Dịch vụ",
-        items: [
+        submenu: [
           {
             title: "Dịch vụ điện",
           },
@@ -27,7 +27,7 @@ export const menu = [
       },
       {
         title: "Sản phẩm",
-        items: [
+        submenu: [
           {
             title: "Sản phẩm điện",
           },
@@ -46,23 +46,23 @@ export const menu = [
   },
   {
     title: "Tài liệu",
-    items: [
+    submenu: [
       {
         title: "Điện",
-        path: "/document/1"
+        url: "/document/1"
       },
       {
         title: "CNTT",
-        path: "/document/2"
+        url: "/document/2"
       },
     ]
   },
   {
     title: "Tin tức - Tuyển dụng",
-    path :'/news'
+    url :'/news'
   },
   {
     title: "Liên hệ",
-    path :'/contact'
+    url :'/contact'
   }
 ];

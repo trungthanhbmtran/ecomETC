@@ -4,7 +4,7 @@ import Link from "../../../lib/Link";
 
 export default function Header({matches}) {
     return (
-        <Grid container sx={{ padding: "10px" }} >
+        <Grid container spacing={2}>
             <Grid item xs={5}>
                 <Link href="/" underline="none" sx={{ display: { sm: 'block' } }}>
                 {
@@ -17,7 +17,6 @@ export default function Header({matches}) {
                 }
                 </Link>            
             </Grid>
-
             {/* <Grid item xs={7}>
                 <Typography backgroundColor="yellow">1</Typography>
                 <Typography backgroundColor="green">2</Typography>

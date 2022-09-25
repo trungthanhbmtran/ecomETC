@@ -1,234 +1,95 @@
-// import { Collapse, List, ListItem, ListItemIcon, ListItemText, Box } from "@mui/material";
-// import { useState, Fragment } from "react";
-// import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import { hasChildren } from "../../../../lib/utils/utils";
-// import Link from "../../../../lib/Link";
-// import { Colors } from "../../../../lib/theme";
+import { useState, useEffect, useRef } from "react";
 
-// const MenuItem = ({ item }) => {
-//   const Component = hasChildren(item) ? MultiLevel : SingleLevel;
-//   return <Component item={item} />;
-// };
+import Dropdown from "./Dropdown";
 
-// const SingleLevel = ({ item }) => {
-//   return (
-//     <Link href={`${item.path}`} color={Colors.yellow} underline="hover" passhref="true">
-//       <ListItem button component="a" >
-//         {
-//           item.icon != undefined &&
-//           <ListItemIcon >{item.icon}</ListItemIcon>
-//         }
-//         <ListItemText primary={item.title} />
-//       </ListItem>
-//     </Link>
-//   );
-// };
+const MenuItems = ({ items, depthLevel }) => {
+  const [dropdown, setDropdown] = useState(false);
 
-// const MultiLevel = ({ item }) => {
-//   const { items: children } = item;
-//   const [open, setOpen] = useState(false);
+  let ref = useRef();
 
-//   const handleClick = () => {
-//     setOpen((prev) => !prev);
-//   };
+  useEffect(() => {
+    const handler = (event) => {
+      if (dropdown && ref.current && !ref.current.contains(event.target)) {
+        setDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [dropdown]);
 
-//   return (
-//     <Box sx={{color: Colors.yellow}}>
-//       <ListItem button component="a" onClick={handleClick}>
-//         {
-//           item.icon != undefined &&
-//           <ListItemIcon >{item.icon}</ListItemIcon>
-//         }
-//         <ListItemText primary={item.title} />
-//         {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-//       </ListItem>
-//       <Collapse in={open} timeout="auto" unmountOnExit
-//         sx={{
-//           position: 'absolute',
-//           backgroundColor: Colors.primary,
-//           zIndex: 1,
-//           width: '200px',
-//           color: Colors.yellow
-//         }}>
-//         <List component="div" disablePadding sx={{ pl: 4 }}>
-//           {children.map((child, key) => (
-//             <MenuItem key={key} item={child} />
-//           ))}
-//         </List>
-//       </Collapse>
-//     </Box>
-//   );
-// };
-
-
-
-// export default MenuItem
-
-import { Collapse, List, ListItem, ListItemIcon, ListItemText, Box, Menu } from "@mui/material";
-import { useState, Fragment } from "react";
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { hasChildren } from "../../../../lib/utils/utils";
-import Link from "../../../../lib/Link";
-import { Colors } from "../../../../lib/theme";
-import { useSelector } from "react-redux";
-
-const MenuItem = ({ item }) => {
-  const Component = hasChildren(item) ? MultiLevel : SingleLevel;
-  return <Component item={item}  />;
-};
-
-const SingleLevel = ({ item }) => {
-  return (
-    <Link href={`${item.path}`} color={Colors.yellow} underline="hover" passhref="true">
-      <ListItem button component="a" >
-        {
-          item.icon != undefined &&
-          <ListItemIcon >{item.icon}</ListItemIcon>
-        }
-        <ListItemText primary={item.title} />
-      </ListItem>
-    </Link>
-  );
-};
-
-const MultiLevel = ({ item }) => {
-  // const [dropdown, setDropdown] = useState(false);
-
-  // const [dropdown, setDropdown] = useState(false);
-  const isMoblie = useSelector(state => state.drawerOpen)
-
-
-  console.log('item',item)
-
-  const { items: children } = item;
-  const [open, setOpen] = useState(false);
-
-
-  const handleClick = () => {
-    setOpen((prev) => !prev);
+  const onMouseEnter = () => {
+    window.innerWidth > 960 && setDropdown(true);
   };
 
-  const handleOpen = () =>{}
-  // const [anchorEl, setAnchorEl] = useState(null);
-  // const open = Boolean(anchorEl);
-
-  // const handle = () => {
-  //   setAnchorEl((prev) => !prev);
-  // };
-  
-
-  // // const handleClick = (event) => {
-  // //   setAnchorEl(event.currentTarget);
-  // // };
-  
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
-
-  // const testShow = () =>{
-  //   alert('1')
-  // }
-
-  // console.log('children',isMoblie)
+  const onMouseLeave = () => {
+    window.innerWidth > 960 && setDropdown(false);
+  };
 
   return (
-    <Box>
-      <ListItem button component="a" 
-      // onClick={isMoblie ? handle : handle}
-       onClick={() => handleClick()}
-      // onMouseOver={()=>setOpen(true)}
-      // onMouseOut={()=>setOpen(false)}
-      // onClick={()=>setOpen(false)}
-      // onMouseOut={() => setOpen(false)}
-      >
-        {
-          item.icon != undefined &&
-          <ListItemIcon >{item.icon}</ListItemIcon>
-        }
-        <ListItemText primary={item.title} />
-        {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-      </ListItem>
-      {
-        isMoblie ? (
-          <Collapse in={open} 
-          timeout="auto" 
-          unmountOnExit
-          // sx={{
-          //   display : 'block',
-          //   // backgroundColor: Colors.primary,
-          //   // zIndex: 1,
-          //   // width: '200px',
-          //   // color: Colors.yellow
-          // }}
+    <li
+      className="menu-items"
+      ref={ref}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {/* if item has url and submenu, we make the button clickable to visit 
+      the url while still showing dropdown on hover. If no url, we only show 
+      hover without linking the button. Else, we render a simple <a> element. 
+      Be aware that they are internal links, so we will use the <Link> component from react-router. Here, we are using the <a> for simplicity. */}
+      {items?.url && items?.submenu ? (
+        <>
+          <button
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded={dropdown ? "true" : "false"}
+            // onClick={() => setDropdown((prev) => !prev)}
           >
-              {children.map((child, key) => (
-                <MenuItem key={key} item={child} />
-              ))}
-          </Collapse>
-        ) : (
-          // <Menu
-          //   anchorEl={anchorEl}
-          //   open={open}
-          //   onClose={handleClose}
-          //   onmouseover={()=>handle}
-          //   // onFocus={(event) => setAnchorEl(event.currentTarget)}
-          //   MenuListProps={{
-          //     'aria-labelledby': 'basic-button',
-          //   }}
-          // >
-          //   <List component="div" disablePadding sx={{ pl :4}}>
-          //     {children.map((child, key) => (
-          //       <MenuItem key={key} item={child} />
-          //     ))}
-          //   </List>
-          // </Menu>
-             <Collapse 
-             in={open} 
-             timeout="auto" 
-          
-            // collapsedSize ='5px'
-              // orientation='horizontal'
-            //  collapsedSize= '10px'
-             unmountOnExit
-                     sx={{
-                       position: 'absolute',
-                       backgroundColor: Colors.primary,
-                       zIndex: 1,
-                       width: '200px',
-                       color: Colors.yellow
-                     }}
-                     >
-                      <List component="div" sx={{ pl: 2 , pb : 2, ml: 4  }}>
-                        {children.map((child, key) => (
-                          <MenuItem key={key} item={child} />
-                        ))}
-                      </List>
-                   </Collapse>
-        )
-      }
-
-      {/* <Collapse in={open} timeout="auto" unmountOnExit
-        // sx={{
-        //   position: 'absolute',
-        //   backgroundColor: Colors.primary,
-        //   zIndex: 1,
-        //   width: '200px',
-        //   color: Colors.yellow
-        // }}
-        >
-        <List component="div" disablePadding sx={{ pl: 4 }}>
-          {children.map((child, key) => (
-            <MenuItem key={key} item={child} />
-          ))}
-        </List>
-      </Collapse> */}
-    </Box>
+            <a href={items.url}>{items.title}</a>
+            {/* {items.title}{" "} */}
+            {depthLevel > 0 ? (
+              <span>&raquo;</span>
+            ) : (
+              <span
+                className={`arrow${
+                  items.url && items.submenu ? " custom" : ""
+                }`}
+              />
+            )}
+          </button>
+          <Dropdown
+            depthLevel={depthLevel}
+            submenus={items.submenu}
+            dropdown={dropdown}
+          />
+        </>
+      ) : !items?.url && items?.submenu ? (
+        <>
+          <button
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded={dropdown ? "true" : "false"}
+            onClick={() => setDropdown((prev) => !prev)}
+          >
+            {/* <a href="/#">{items.title}</a> */}
+            {items.title}{" "}
+            {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
+          </button>
+          <Dropdown
+            depthLevel={depthLevel}
+            submenus={items.submenu}
+            dropdown={dropdown}
+          />
+        </>
+      ) : (
+        <a href={items?.url}>{items?.title}</a>
+      )}
+    </li>
   );
 };
 
-
-
-export default MenuItem
-
+export default MenuItems;
