@@ -10,11 +10,10 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 // import Image from 'next/image';
 // import Menu from './menu';
 // import { filterProps } from 'framer-motion';
-import { menu } from '../../../data/menu';
-import MenuItem from '../AppBar/menu/index';
 import { ListSubheader } from '@mui/material';
 import { useDispatch } from "react-redux";
 import * as Actions from '../../../redux/Actions'
+import Navigator from './Navigator';
 
 function AppBar() {
   const dispatch = useDispatch();
@@ -27,14 +26,11 @@ function AppBar() {
             aria-label="open drawer"
             edge="start"
             onClick={() => dispatch(Actions.default.set_drawerOpen(true)) }
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2}}
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/* {navItems.map((item,i) => <Menu key={i} item={item}/>)} */}
-            {menu.map((item, key) => <MenuItem key={key} item={item} />)}
-          </Box>
+          <Navigator />
           <Box sx={{ flexGrow: 1}} />
           <IconButton color="inherit">
             <SearchIcon />

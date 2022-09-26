@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useCallback, useState } from 'react';
 import { menu } from '../../../data/menu';
 import Link from '../../../lib/Link';
-import MenuItem from '../AppBar/menu/index';
+import MenuItem from '../AppBar/menumobile';
 import { useDispatch,useSelector } from "react-redux";
 import * as Actions from '../../../redux/Actions'
 import { DrawerWidth } from '../../../lib/theme';
@@ -60,7 +60,7 @@ import { DrawerWidth } from '../../../lib/theme';
                     keepMounted: true, // Better open performance on mobile.
                 }}
                 sx={{
-                    display: { xs: 'block', sm: 'none' },
+                    display: { xs: 'block'},
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DrawerWidth },
                 }}
             >

@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import {Box, Button, List} from '@mui/material'
+import {Box, Button, List, ListItem} from '@mui/material'
 import Dropdown from "./Dropdown";
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const MenuItems = ({ items, depthLevel }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -43,7 +41,7 @@ const MenuItems = ({ items, depthLevel }) => {
       the url while still showing dropdown on hover. If no url, we only show 
       hover without linking the button. Else, we render a simple <a> element. 
       Be aware that they are internal links, so we will use the <Link> component from react-router. Here, we are using the <a> for simplicity. */}
-      {items?.url && items?.submenu ? (
+      {items?.url && items?.items ? (
         <Box>
           <Button
             Button="button"
@@ -58,18 +56,18 @@ const MenuItems = ({ items, depthLevel }) => {
             ) : (
               <span
                 className={`arrow${
-                  items.url && items.submenu ? " custom" : ""
+                  items.url && items.items ? " custom" : ""
                 }`}
               />
             )}
           </Button>
           <Dropdown
             depthLevel={depthLevel}
-            submenus={items.submenu}
+            submenus={items.items}
             dropdown={dropdown}
           />
         </Box>
-      ) : !items?.url && items?.submenu ? (
+      ) : !items?.url && items?.items ? (
         <Box>
           <Button
             type="button"
@@ -78,19 +76,21 @@ const MenuItems = ({ items, depthLevel }) => {
             onClick={() => setDropdown((prev) => !prev)}
           >
             {/* <a href="/#">{items.title}</a> */}
-            {items.title}
+            {items.title}{" "}
             {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
           </Button>
           <Dropdown
             depthLevel={depthLevel}
-            submenus={items.submenu}
+            submenus={items.items}
             dropdown={dropdown}
           />
         </Box>
       ) : (
+        <Box>
           <Button>
            <a href={items?.url}>{items?.title}</a>
           </Button>
+        </Box>
       )}
     </List>
   );

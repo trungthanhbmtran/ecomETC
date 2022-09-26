@@ -10,10 +10,10 @@ export const menu = [
   },
   {
     title: "Dịch vụ - Sản phẩm",
-    submenu: [
+    items: [
       {
         title: "Dịch vụ",
-        submenu: [
+        items: [
           {
             title: "Dịch vụ điện",
           },
@@ -27,7 +27,7 @@ export const menu = [
       },
       {
         title: "Sản phẩm",
-        submenu: [
+        items: [
           {
             title: "Sản phẩm điện",
           },
@@ -46,7 +46,7 @@ export const menu = [
   },
   {
     title: "Tài liệu",
-    submenu: [
+    items: [
       {
         title: "Điện",
         url: "/document/1"
