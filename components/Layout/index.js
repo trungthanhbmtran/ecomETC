@@ -35,7 +35,7 @@ export default function Layout({ children }) {
       <Header matches={matches} />
       <AppBar />
       <DrawerAppBar />
-      <Box sx={{ position : 'relative' , mt : 10 , mb :2}}>
+      <Box sx={{  mt : 7.3 , mb :2}}>
           {children}
       </Box>
       <BackToTop />

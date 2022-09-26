@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-
+import {Box, Button, List} from '@mui/material'
 import Dropdown from "./Dropdown";
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const MenuItems = ({ items, depthLevel }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -13,8 +15,8 @@ const MenuItems = ({ items, depthLevel }) => {
         setDropdown(false);
       }
     };
-    document.addEventListener("mousedown", handler);
-    document.addEventListener("touchstart", handler);
+      document.addEventListener("mousedown", handler);
+      document.addEventListener("touchstart", handler);
     return () => {
       // Cleanup the event listener
       document.removeEventListener("mousedown", handler);
@@ -31,7 +33,7 @@ const MenuItems = ({ items, depthLevel }) => {
   };
 
   return (
-    <li
+    <List
       className="menu-items"
       ref={ref}
       onMouseEnter={onMouseEnter}
@@ -42,9 +44,9 @@ const MenuItems = ({ items, depthLevel }) => {
       hover without linking the button. Else, we render a simple <a> element. 
       Be aware that they are internal links, so we will use the <Link> component from react-router. Here, we are using the <a> for simplicity. */}
       {items?.url && items?.submenu ? (
-        <>
-          <button
-            type="button"
+        <Box>
+          <Button
+            Button="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}
             // onClick={() => setDropdown((prev) => !prev)}
@@ -60,35 +62,37 @@ const MenuItems = ({ items, depthLevel }) => {
                 }`}
               />
             )}
-          </button>
+          </Button>
           <Dropdown
             depthLevel={depthLevel}
             submenus={items.submenu}
             dropdown={dropdown}
           />
-        </>
+        </Box>
       ) : !items?.url && items?.submenu ? (
-        <>
-          <button
+        <Box>
+          <Button
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}
             onClick={() => setDropdown((prev) => !prev)}
           >
             {/* <a href="/#">{items.title}</a> */}
-            {items.title}{" "}
+            {items.title}
             {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
-          </button>
+          </Button>
           <Dropdown
             depthLevel={depthLevel}
             submenus={items.submenu}
             dropdown={dropdown}
           />
-        </>
+        </Box>
       ) : (
-        <a href={items?.url}>{items?.title}</a>
+          <Button>
+           <a href={items?.url}>{items?.title}</a>
+          </Button>
       )}
-    </li>
+    </List>
   );
 };
 
