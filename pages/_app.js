@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Head from 'next/head';
 import createEmotionCache from '../lib/createEmotionCache';
 import { CacheProvider } from '@emotion/react';
+import './app.css'
+
 
 const clientSideEmotionCache = createEmotionCache();
 

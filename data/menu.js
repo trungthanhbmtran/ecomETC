@@ -1,52 +1,44 @@
-import FolderIcon from '@mui/icons-material/Folder';
 
 export const menu = [
   {
     title: "Trang Chủ",
-    path: "/"
+    url: "/"
   },
   {
     title: "Giới thiệu",
-    path: "/aboutus"
+    url: "/aboutus"
   },
   {
     title: "Dịch vụ - Sản phẩm",
-    items: [
+    submenu: [
       {
         title: "Dịch vụ",
-        items: [
+        submenu: [
           {
             title: "Dịch vụ điện",
-            path: "/thedowtheory"
           },
           {
             title: "Dịch vụ Thử nghiệm",
-            path: "/chart"
           },
           {
             title: "Dịch vụ CNTT",
-            path: "/chart"
           },
         ]
       },
       {
         title: "Sản phẩm",
-        items: [
+        submenu: [
           {
             title: "Sản phẩm điện",
-            path: "/thedowtheory"
           },
           {
             title: "Charts & Chart Patterns",
-            path: "/chart"
           },
           {
             title: "Trend & Trend Lines",
-            path: "/trendlines"
           },
           {
             title: "Support & Resistance",
-            path: "/sandr"
           }
         ]
       },
@@ -54,64 +46,23 @@ export const menu = [
   },
   {
     title: "Tài liệu",
-    items: [
+    submenu: [
       {
         title: "Điện",
-        icon : <FolderIcon/>,
-        items: [
-          {
-            title: "Tài liệu điện 1 ",
-            path: "/thedowtheory",
-            icon : <FolderIcon/>
-          },
-          {
-            title: "CT",
-            path: "/chart",
-            icon : <FolderIcon/>
-          },
-          {
-            title: "Tài liệu điện 2",
-            path: "/trendlines",
-            icon : <FolderIcon/>
-
-          },
-          {
-            title: "Tài liệu điện 3",
-            path: "/sandr",
-            icon : <FolderIcon />
-
-          }
-        ]
+        url: "/document/1"
       },
       {
         title: "CNTT",
-        icon : <FolderIcon/>,
-        items: [
-          {
-            title: "Tài liệu CNTT 1",
-            icon : <FolderIcon/>,
-            path: "/thedowtheory"
-          },
-          {
-            title: "Tài liệu CNTT 2",
-            icon : <FolderIcon/>,
-            path: "/chart"
-          },
-          {
-            title: "Tài liệu CNTT3",
-            icon : <FolderIcon/>,
-            path: "/trendlines"
-          }
-        ]
+        url: "/document/2"
       },
     ]
   },
   {
     title: "Tin tức - Tuyển dụng",
-    path :'/news'
+    url :'/news'
   },
   {
     title: "Liên hệ",
-    path :'/contact'
+    url :'/contact'
   }
 ];

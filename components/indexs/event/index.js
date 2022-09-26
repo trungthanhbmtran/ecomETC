@@ -1,14 +1,10 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { NewsData } from '../../../data/newsdata';
 import BoxNews from '../../news/boxnews';
 
 const Event = () => {
-
+    // console.log('NewsData',NewsData)
     return (
         <Grid container spacing={2} direction="row" justifyContent='center' alignItems='center'  >
             {/* {NewsData.map(el => {
@@ -20,10 +16,13 @@ const Event = () => {
                 )
             })
             } */}
+            
              {NewsData.map(e => {
+                // console.log('e',e.subcontent.at(0))
+                // {e.subcontent.at(0)}
                 return(
-                <Grid item md={12} lg={3}>
-                    <BoxNews group={e.group} time={e.time} subid={e.subid} title={e.title} imagePath={e.imagePath} Description={e.Description} />
+                <Grid item md={12} lg={3} sx={{ minHeight : 600 }}>
+                    <BoxNews group={e.group} time={e.subcontent.at(0).time} subid={e.subcontent.at(0).subid} title={e.subcontent.at(0).title} imagePath={e.subcontent.at(0).imagePath} Description={e.subcontent.at(0).Description} />
                 </Grid>
                 )
             })
