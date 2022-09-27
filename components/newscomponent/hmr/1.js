@@ -2,7 +2,8 @@ import { Typography, Grid, Stack } from "@mui/material"
 import Image from "next/image"
 import LayoutContent from "../../LayoutContent"
 
-const Maybienthe = () => {
+
+const TuyenDung= () => {
     return (
         <LayoutContent>
             <Stack spacing={2}>
@@ -22,4 +23,4 @@ const Maybienthe = () => {
     )
 }
 
-export default Maybienthe
+export default TuyenDung

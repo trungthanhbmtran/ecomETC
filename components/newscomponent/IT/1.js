@@ -1,11 +1,11 @@
 import { Typography, Grid, Stack } from "@mui/material"
 import Image from "next/image"
-import Layout from "../../Layout"
+import LayoutContent from "../../LayoutContent"
 
 const Maybienthe = () => {
     return (
-        <Layout>
-            <Stack spacing={2}>
+            <LayoutContent>
+                <Stack spacing={2}>
                         <Typography variant='h6'>Nhấn mạnh chuyển đổi số phải là công cụ quan trọng trong xây dựng nền kinh tế độc lập tự chủ, hội nhập, người đứng đầu phải truyền cảm hứng, tạo ra xu thế, thúc đẩy phong trào chuyển đổi số, triển khai công việc thực chất để người dân, doanh nghiệp được thụ hưởng thật, Thủ tướng Phạm Minh Chính chỉ rõ các nhiệm vụ trọng tâm thời gian tới mà các bộ, ngành, địa phương phải tập trung triển khai.</Typography>
                         <Typography variant='subbody1'>Sáng 8/8/2022, tại trụ sở Chính phủ, Thủ tướng Chính phủ Phạm Minh Chính, Chủ tịch Ủy ban Quốc gia về chuyển đổi số chủ trì phiên họp thứ ba của Ủy ban. Phiên họp được kết nối trực tuyến tới trụ sở các bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ, UBND các tỉnh, thành phố trực thuộc Trung ương.</Typography>
                         <Image src="/images/News/IT/chuyendoso/contentimg/20220808-pg1-TTCP.jpeg" height={100} width={200} layout="responsive"/>
@@ -21,10 +21,9 @@ const Maybienthe = () => {
                         <Typography variant='subbody1'>Cơ sở dữ liệu quốc gia về bảo hiểm đã quản lý thông tin của 27 triệu hộ gia đình tham gia bảo hiểm y tế, bao gồm thông tin của 98 triệu người dân.</Typography>
                         <Typography variant='subbody1'>Dịch vụ công trực tuyến được triển khai ngày càng hiệu quả, sâu rộng. Cổng Dịch vụ công quốc gia đã cung cấp 3.699 dịch vụ công trực tuyến mức độ 3, 4; hơn 2,1 triệu tài khoản đăng ký (tăng hơn 2,8 lần so với cùng kỳ); hơn 122,7 triệu hồ sơ đồng bộ trạng thái (tăng hơn 2 lần so với cùng kỳ); hơn 4,1 triệu hồ sơ trực tuyến thực hiện từ Cổng Dịch vụ công quốc gia (tăng hơn 3 lần so với cùng kỳ).</Typography>
                         <Typography variant='subbody1'>An toàn, an ninh thông tin tiếp tục được quan tâm, các doanh nghiệp Việt Nam dần làm chủ hệ sinh thái an toàn thông tin mạng. Trong 6 tháng đầu năm 2022, đã ghi nhận, cảnh báo và hướng dẫn xử lý 6.641 cuộc tấn công mạng gây ra sự cố vào các hệ thống thông tin tại Việt Nam, tăng 37,92% so với cùng kỳ năm 2021 và tăng 35,14% so với đầu năm 2022. Đã có 922/3022 hệ thống thông tin của cơ quan Nhà nước được phê duyệt Hồ sơ đề xuất cấp độ an toàn thông tin, đạt 31%.</Typography>
-
                         <a href='/document/TIEU CHUAN KT CAC VTTB TRONG EVNCPC 2022.pdf' download>Click to download</a>
                     </Stack>
-        </Layout>
+            </LayoutContent>
     )
 }
 

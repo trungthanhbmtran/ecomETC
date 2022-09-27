@@ -26,10 +26,8 @@ export default function Footer() {
     >
       <Grid container spacing={2} justifyContent="center">
         <Grid item md={6} lg={4}>
-          <FooterTitle variant="body1">Giới thiệu về chúng tôi</FooterTitle>
           <Typography variant="caption2">
-          CÔNG TY CỔ PHẦN 
-          THÍ NGHIỆM CƠ ĐIỆN VIỆT NAM
+          CÔNG TY CỔ PHẦN THÍ NGHIỆM CƠ ĐIỆN VIỆT NAM
           <br></br>
           Tên viết tắt: VN.ETC 
           <br></br>

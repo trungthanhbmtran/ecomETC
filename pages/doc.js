@@ -44,7 +44,7 @@ export default function Doc({slug}) {
 
   return (
     <Layout>
-      <Grid container >
+      <Grid container  sx={{mt : 10}}>
         <Grid item xs={2}  >
           {TypeTable.at().Content && TypeTable.at().Content.map(e => {
             return (
@@ -101,9 +101,6 @@ export default function Doc({slug}) {
           })}
         </Grid>
       </Grid>
-
-
-
     </Layout>
   )
 

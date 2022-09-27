@@ -1,3 +1,4 @@
+import { Container } from '@mui/system'
 import { useRouter } from 'next/router'
 // import Maybienthe from '../../components/newscomponent/ETC/1'
 // import Maybienthe2 from '../../components/newscomponent/ETC/2'
@@ -19,7 +20,7 @@ const DocumentETC = () => {
 
 
   return (
-    <Doc slug={slug.at()}/>
+      <Doc slug={slug.at()}/>
   )
 }
 
