@@ -27,6 +27,8 @@ const Post = () => {
 
   const DynamicHeader = dynamic(() => import(`../../components/newscomponent/${slug.at(0)}/${slug.at(1)}`))
 
+  console.log('post',slug)
+
   return (
       // <DynamicHeader/>
     //   DataPost.reduce((t, v) => v.title = slug.at(0) ? [...t, v.component] : t, [])    // Object.keys(DataPost.find(x => x.title === slug.at(0))).map(

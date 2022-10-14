@@ -6,9 +6,9 @@ const BoxInfo =({tittle,component,path}) =>{
         <Box >
             <Typography variant="h3" color='primary' textAlign='center'>{tittle}</Typography>
                 {component}
-            <Box textAlign='center' sx={{ marginTop : 2}} >
+            {/* <Box textAlign='center' sx={{ marginTop : 2}} >
                 <Link href={path}  underline="none" textAlign='center' ><Button variant="contained">Xem Thêm</Button></Link>
-            </Box>
+            </Box> */}
         </Box>
     )
 }

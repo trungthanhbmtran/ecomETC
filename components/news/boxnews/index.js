@@ -28,28 +28,40 @@ const BoxNews = ({ time, title, subid, imagePath, Description, group }) => {
     //     )
     // }
     return (
-        <Link href={`./post/${group}/1`} variant="body2" underline="none">
-            <CardActionArea >
-                <CardMedia
-                    component="img"
-                    height="200"
-                    image={imagePath}
-                    alt="green iguana"
-                />
-                <CardHeader
-                    subheader={time}
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {Description}
-                    </Typography>
-                </CardContent>
+            <Link href={`http://localhost:3000/post/${group}/1`} variant="body2" underline="none">
+                <CardActionArea >
+                    {imagePath ? (
+                        <CardMedia
+                            component="img"
+                            height={title ? '200' : '700'}
+                            image={imagePath}
+                            alt="green iguana"
+                        />
+                    ) : null
+                    }
 
-            </CardActionArea>
-        </Link>
+                    {
+                        time ? (
+                            <CardHeader
+                                subheader={time}
+                            />
+                        ) : null
+                    }
+
+                    {
+                        title ? (
+                            <CardContent>
+                                <Typography align='center' gutterBottom variant="h6" component="div">
+                                    {title}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    {Description}
+                                </Typography>
+                            </CardContent>
+                        ) : null
+                    }
+                </CardActionArea>
+            </Link>
     )
 
 }

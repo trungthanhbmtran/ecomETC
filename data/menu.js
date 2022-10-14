@@ -6,7 +6,21 @@ export const menu = [
   },
   {
     title: "Giới thiệu",
-    url: "/aboutus"
+    url: "/aboutus",
+    items: [
+      {
+        title: "Về Chúng Tôi",
+        url: "/aboutus"
+      },
+      {
+        title: "Trách Nhiệm - Sứ Mệnh",
+        url: "/mission"
+      },
+      {
+        title: "Cây Sâm Ngọc Linh",
+        url: "/ginseng"
+      },
+    ]
   },
   {
     title: "Dịch vụ - Sản phẩm",
@@ -59,7 +73,20 @@ export const menu = [
   },
   {
     title: "Tin tức - Tuyển dụng",
-    url :'/news'
+    items: [
+      {
+        title: "Điện",
+        url: "/news/0"
+      },
+      {
+        title: "CNTT",
+        url: "/news/1"
+      },
+      {
+        title: "Tuyển dụng",
+        url: "/news/2"
+      },
+    ]
   },
   {
     title: "Liên hệ",

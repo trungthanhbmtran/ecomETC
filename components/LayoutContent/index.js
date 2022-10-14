@@ -8,7 +8,7 @@ import BoxContent from "./BoxCotent"
 const LayoutContent = ({children}) =>{
     return(
         <Layout>
-            <Container maxWidth="false" sx={{mt :10}}>
+            <Container maxWidth="lg" sx={{mt :10}}>
                 <Grid container  spacing={5}>
                     <Grid item xs={8}>{children}</Grid>
                     <Grid item xs>

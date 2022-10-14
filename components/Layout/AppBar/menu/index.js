@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import {Box, Button, List, ListItem} from '@mui/material'
+import { Box, Button, List, ListItem } from '@mui/material'
 import Dropdown from "./Dropdown";
+import Link from "../../../../lib/Link";
 
 const MenuItems = ({ items, depthLevel }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -13,8 +14,8 @@ const MenuItems = ({ items, depthLevel }) => {
         setDropdown(false);
       }
     };
-      document.addEventListener("mousedown", handler);
-      document.addEventListener("touchstart", handler);
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
     return () => {
       // Cleanup the event listener
       document.removeEventListener("mousedown", handler);
@@ -47,17 +48,19 @@ const MenuItems = ({ items, depthLevel }) => {
             Button="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}
-            // onClick={() => setDropdown((prev) => !prev)}
+            onClick={() => setDropdown((prev) => !prev)}
           >
-            <a href={items.url}>{items.title}</a>
-            {/* {items.title}{" "} */}
+            <Link href={`${items.url}`} underline="hover" passhref="true">
+              {items?.title}
+            </Link>
+            {/* <a href={items.url}>{items.title}</a> */}
+            {items.title}{" "}
             {depthLevel > 0 ? (
               <span>&raquo;</span>
             ) : (
               <span
-                className={`arrow${
-                  items.url && items.items ? " custom" : ""
-                }`}
+                className={`arrow${items.url && items.items ? " custom" : ""
+                  }`}
               />
             )}
           </Button>
@@ -76,7 +79,7 @@ const MenuItems = ({ items, depthLevel }) => {
             onClick={() => setDropdown((prev) => !prev)}
           >
             {/* <a href="/#">{items.title}</a> */}
-            {items.title}{" "}
+            {items.title}{""}
             {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
           </Button>
           <Dropdown
@@ -88,7 +91,10 @@ const MenuItems = ({ items, depthLevel }) => {
       ) : (
         <Box>
           <Button>
-           <a href={items?.url}>{items?.title}</a>
+            <Link  href={`${items.url}`} underline="hover" passhref="true">
+              {items?.title}
+            </Link>
+            {/* <a href={`${items.url}`}> {items?.title}</a> */}
           </Button>
         </Box>
       )}

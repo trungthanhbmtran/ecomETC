@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import New from '../../news';
 import Banner from '../banner';
+import Image from "next/image";
+
 
 
 function TabPanel(props) {
@@ -65,10 +67,11 @@ const TabsComponent = ({ ArrayTabs, page }) => {
             title={e.tillebaner}
             description={e.description}
             />
+            {/* <Image src="/XXx/dive-1.png" width='1860' height={63} layout='fixed' /> */}
         </TabPanel>
         ))
       }
-          <AppBar position="static">
+          {/* <AppBar position="static">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -78,7 +81,6 @@ const TabsComponent = ({ ArrayTabs, page }) => {
           aria-label="full width tabs example"
         >
           {ArrayTabs.map((e, i) => <Tab key={i} label={e.title} {...a11yProps(e.id)} />)}
-          {/* <Tab label={ArrayTabs.title} {...a11yProps(ArrayTabs.id)} />  */}
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -86,7 +88,6 @@ const TabsComponent = ({ ArrayTabs, page }) => {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        {/* <h1>111</h1> */} 
         {page
           ? (ArrayTabs.map((e, i) => <TabPanel key={i} value={value} index={i} dir={theme.direction}>{e.component} </TabPanel>))
           : (ArrayTabs.map((e, i) =>
@@ -94,8 +95,7 @@ const TabsComponent = ({ ArrayTabs, page }) => {
               <New data={e} />
             </TabPanel>
           ))}
-        {/* {ArrayTabs.map((e,i)=><TabPanel value={value} index={i} dir={theme.direction}>{e.component} </TabPanel>)} */}
-      </SwipeableViews>
+      </SwipeableViews> */}
     </Box>
   )
 }
