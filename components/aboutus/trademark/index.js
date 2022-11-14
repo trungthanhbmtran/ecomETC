@@ -4,8 +4,7 @@ const TradeMark = () => {
     return (
         <Box sx={{ minHeight: 500 }}>
             <Typography align="center">
-                THƯƠNG HIỆU SÂM NGỌC LINH KON TUM K5
-                <br></br>
+                    LỊCH SỬ HÌNH THÀNH VÀ PHÁT TRIỂN                <br></br>
                 <Image src="/XXx/line-1.png" width={129} height={20} layout="fixed" />
             </Typography>
             <Container maxWidth="lg">
@@ -16,24 +15,17 @@ const TradeMark = () => {
                         </Paper>
                     </Grid>
                     <Grid item xs={6}>
-                            *Hơn 20 năm trồng và phát triển bảo tồn nguồn gen gốc.
-                            <br></br>
-                            * Sở hữu hơn 7000 ngàn ha vùng trồng sâm tại đỉnh núi Ngọc Linh (nơi cây sâm đầu tiên được tìm thấy).
-                            <br></br>
-
-                            * Hơn 600 ha vườn sâm đã trồng .
-                            <br></br>
-
-                            * là 1 trong 2 đơn vị duy nhất tới thời điểm này được UBND tỉnh Kon Tum chứng nhận vườn sâm gốc.
-                            <br></br>
-
-                            * Tạo công ăn việc làm cho hàng ngàn hộ dân đồng bào Xơ Đăng.
-                            <br></br>
-
-                            *Cung cấp miễn phí hàng chục ngàn cây giống mỗi năm cho người dân phát triển.
-                            <br></br>
-
-                            *Giúp thay đổi nhận thức của người dân trong việc quản lý bảo vệ rừng kết hợp trồng cây dược liệu.
+                    26/11/2020
+                    <br></br>
+                    Công ty TNHH MTV Thí Nghiệm Điện Việt Nam được hình thành, đây là tiền thân của Công ty Cổ Phần Thí Nghiệm Cơ Điện Việt Nam
+                    <br></br>
+                    28/02/2022
+                    <br></br>
+                    Công ty Cổ Phần Thí Nghiệm Cơ Điện Việt Nam hoàn tất việc cổ phần hóa với tên gọi Công ty Cổ Phần Thí Nghiệm Cơ Điện Việt Nam (VN.ETC)
+                    <br></br>
+                    20/06/2022
+                    <br></br>
+                    Công ty Cổ Phần Thí Nghiệm Cơ Điện Việt Nam mở văn phòng đại diện tại Quảng Ngãi với tên gọi là Văn phòng Đại diện Công ty Cổ Phần Thí Nghiệm Cơ Điện Việt Nam tại Quảng Ngãi (ETC-QNg)
                     </Grid>
                 </Grid>
             </Container>

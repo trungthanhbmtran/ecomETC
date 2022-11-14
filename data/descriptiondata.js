@@ -71,16 +71,13 @@ export const DescriptionData = [
         subcontent : [
             {
                 subid: 1, 
-                imagePath: "/XXx/gcn-Dich-Chiet-Sam.jpg", 
+                imagePath: "/GP/GCN DK HD KIEM DINH.png", 
             },
             { 
                 subid: 2, 
-                imagePath: "/XXx/gcn-love-for-men.jpg", 
+                imagePath: "/GP/GCN DK HD THU NGHIEM.png", 
               },
-              { 
-                subid: 3, 
-                imagePath: "/XXx/gcn-love-for-women.jpg", 
-              },
+             
         ] 
     },
 ]

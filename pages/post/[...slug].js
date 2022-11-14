@@ -27,7 +27,7 @@ const Post = () => {
 
   const DynamicHeader = dynamic(() => import(`../../components/newscomponent/${slug.at(0)}/${slug.at(1)}`))
 
-  console.log('post',slug)
+  // console.log('post',slug)
 
   return (
       // <DynamicHeader/>

@@ -1,7 +1,7 @@
 import { CardHeader, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
 import Link from '../../../lib/Link'
 
-const BoxNews = ({ time, title, subid, imagePath, Description, group }) => {
+const BoxNews = ({ time, title, subid, imagePath, Description, group,i }) => {
     // if (subid) {
     //     return (
     //         <Link href={`./post/${group}/${subid}`} variant="body2" underline="none">
@@ -28,7 +28,7 @@ const BoxNews = ({ time, title, subid, imagePath, Description, group }) => {
     //     )
     // }
     return (
-            <Link href={`http://localhost:3000/post/${group}/1`} variant="body2" underline="none">
+            <Link href={`http://localhost:3000/post/${group}/${i+1}`} variant="body2" underline="none">
                 <CardActionArea >
                     {imagePath ? (
                         <CardMedia

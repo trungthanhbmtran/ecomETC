@@ -30,7 +30,9 @@ const NewsBox = () => {
 
     // console.log('slug',slug)
     const filterDataNews = useMemo(() => NewsData.filter(e=> e.id == Value ),[Value])
-    console.log('filterDataNews',slug)
+    // console.log('filterDataNews',slug)
+
+
     return (
       // <DynamicHeader/>
     //   DataPost.reduce((t, v) => v.title = slug.at(0) ? [...t, v.component] : t, [])    // Object.keys(DataPost.find(x => x.title === slug.at(0))).map(
@@ -43,7 +45,7 @@ const NewsBox = () => {
             filterDataNews.at(0)?.subcontent?.map((e,i)=>
             (
                   <Grid item md={6}>
-                    <BoxNews Description={e.Description} group={filterDataNews.at(0).group} time={e.time} title={e.title} imagePath={e.imagePath}/>
+                    <BoxNews i={i} Description={e.Description} group={filterDataNews.at(0).group} time={e.time} title={e.title} imagePath={e.imagePath}/>
                   </Grid>
             ) 
          

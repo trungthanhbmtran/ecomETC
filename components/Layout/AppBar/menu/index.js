@@ -54,7 +54,7 @@ const MenuItems = ({ items, depthLevel }) => {
               {items?.title}
             </Link>
             {/* <a href={items.url}>{items.title}</a> */}
-            {items.title}{" "}
+            {/* {items.title}{" "} */}
             {depthLevel > 0 ? (
               <span>&raquo;</span>
             ) : (
@@ -80,7 +80,7 @@ const MenuItems = ({ items, depthLevel }) => {
           >
             {/* <a href="/#">{items.title}</a> */}
             {items.title}{""}
-            {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
+            {depthLevel > 0 ? <span> &raquo;</span> : <span className="arrow" />}
           </Button>
           <Dropdown
             depthLevel={depthLevel}

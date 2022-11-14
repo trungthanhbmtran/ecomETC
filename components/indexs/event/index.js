@@ -46,9 +46,9 @@ const Event = () => {
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           {
-            filterComponent[0]?.subcontent.slice(0,3).map(el =>
+            filterComponent[0]?.subcontent.slice(0,3).map((el,i) =>
               <Grid item xs={4}>
-                <BoxNews title={el.title} group={filterComponent[0].group} imagePath={el.imagePath} Description={el.Description} />
+                <BoxNews i={i} title={el.title} group={filterComponent[0].group} imagePath={el.imagePath} Description={el.Description} />
               </Grid>
             )
           }
