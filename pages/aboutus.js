@@ -1,5 +1,10 @@
+
 import AboutUs from "../components/AboutUs"
+import Commit from "../components/aboutus/commit"
+import Description from "../components/aboutus/description"
+import LeaderShipMessage from "../components/aboutus/leadershipmessage"
 import Organization from "../components/aboutus/organizational"
+import TradeMark from "../components/aboutus/trademark"
 import Vision from "../components/aboutus/vision"
 import Layout from "../components/Layout"
 import Banner from "../components/layoutpage/banner"
@@ -12,7 +17,7 @@ const ArrayTabs = [
         title: 'Giới thiệu',
         tillebaner: "Công nhân Điện lực cứu người bị tai nạn giao thông",
         description: "Theo đó, vào khoảng 7h30 phút ngày 21-7, các anh Trần Văn Đài, Lê Hưng Giang và Tào Văn Hạnh là công nhân Điện lực Như Thanh đang trên đường thực hiện nhiệm vụ, khi đi qua Khu phố 1, thị trấn Bến Sung (Như Thanh) thì gặp một phụ nữ đi xe máy không may bị ngã. Sau cú ngã, nạn nhân bị xe máy đè lên, mặt bị xây xát và chảy nhiều máu.",
-        imagePath: "/images/news/etc/congnhandienlucthanhhoacuunguoi.jpg", 
+        imagePath: "/images/news/etc/congnhandienlucthanhhoacuunguoi.jpg",
         component: <AboutUs />
     },
     {
@@ -36,7 +41,12 @@ const ArrayTabs = [
 const aboutUs = () => {
     return (
         <Layout>
-            <TabsComponent page='about' ArrayTabs={ArrayTabs} />
+            <Banner path='/XXx/banner-sam-ngoc-linh-03.jpg' />
+            <LeaderShipMessage/>
+            <Commit/>
+            <TradeMark/>
+            <Description/>
+            {/* <TabsComponent page='about' ArrayTabs={ArrayTabs} /> */}
         </Layout>
 
     )

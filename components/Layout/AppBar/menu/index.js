@@ -1,66 +1,105 @@
-import { Collapse, List, ListItem, ListItemIcon, ListItemText, Box } from "@mui/material";
-import { useState, Fragment } from "react";
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { hasChildren } from "../../../../lib/utils/utils";
+import { useState, useEffect, useRef } from "react";
+import { Box, Button, List, ListItem } from '@mui/material'
+import Dropdown from "./Dropdown";
 import Link from "../../../../lib/Link";
-import { Colors } from "../../../../lib/theme";
 
-const MenuItem = ({ item }) => {
-  const Component = hasChildren(item) ? MultiLevel : SingleLevel;
-  return <Component item={item} />;
-};
+const MenuItems = ({ items, depthLevel }) => {
+  const [dropdown, setDropdown] = useState(false);
 
-const SingleLevel = ({ item }) => {
-  return (
-    <Link href={`${item.path}`} color={Colors.yellow} underline="hover" passhref="true">
-      <ListItem button component="a" >
-        {
-          item.icon != undefined &&
-          <ListItemIcon >{item.icon}</ListItemIcon>
-        }
-        <ListItemText primary={item.title} />
-      </ListItem>
-    </Link>
-  );
-};
+  let ref = useRef();
 
-const MultiLevel = ({ item }) => {
-  const { items: children } = item;
-  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const handler = (event) => {
+      if (dropdown && ref.current && !ref.current.contains(event.target)) {
+        setDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [dropdown]);
 
-  const handleClick = () => {
-    setOpen((prev) => !prev);
+  const onMouseEnter = () => {
+    window.innerWidth > 960 && setDropdown(true);
+  };
+
+  const onMouseLeave = () => {
+    window.innerWidth > 960 && setDropdown(false);
   };
 
   return (
-    <Box sx={{color: Colors.yellow}}>
-      <ListItem button component="a" onClick={handleClick}>
-        {
-          item.icon != undefined &&
-          <ListItemIcon >{item.icon}</ListItemIcon>
-        }
-        <ListItemText primary={item.title} />
-        {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit
-        sx={{
-          position: 'absolute',
-          backgroundColor: Colors.primary,
-          zIndex: 1,
-          width: '200px',
-          color: Colors.yellow
-        }}>
-        <List component="div" disablePadding sx={{ pl: 4 }}>
-          {children.map((child, key) => (
-            <MenuItem key={key} item={child} />
-          ))}
-        </List>
-      </Collapse>
-    </Box>
+    <List
+      className="menu-items"
+      ref={ref}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {/* if item has url and submenu, we make the button clickable to visit 
+      the url while still showing dropdown on hover. If no url, we only show 
+      hover without linking the button. Else, we render a simple <a> element. 
+      Be aware that they are internal links, so we will use the <Link> component from react-router. Here, we are using the <a> for simplicity. */}
+      {items?.url && items?.items ? (
+        <Box>
+          <Button
+            Button="button"
+            aria-haspopup="menu"
+            aria-expanded={dropdown ? "true" : "false"}
+            onClick={() => setDropdown((prev) => !prev)}
+          >
+            <Link href={`${items.url}`} underline="hover" passhref="true">
+              {items?.title}
+            </Link>
+            {/* <a href={items.url}>{items.title}</a> */}
+            {/* {items.title}{" "} */}
+            {depthLevel > 0 ? (
+              <span>&raquo;</span>
+            ) : (
+              <span
+                className={`arrow${items.url && items.items ? " custom" : ""
+                  }`}
+              />
+            )}
+          </Button>
+          <Dropdown
+            depthLevel={depthLevel}
+            submenus={items.items}
+            dropdown={dropdown}
+          />
+        </Box>
+      ) : !items?.url && items?.items ? (
+        <Box>
+          <Button
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded={dropdown ? "true" : "false"}
+            onClick={() => setDropdown((prev) => !prev)}
+          >
+            {/* <a href="/#">{items.title}</a> */}
+            {items.title}{""}
+            {depthLevel > 0 ? <span> &raquo;</span> : <span className="arrow" />}
+          </Button>
+          <Dropdown
+            depthLevel={depthLevel}
+            submenus={items.items}
+            dropdown={dropdown}
+          />
+        </Box>
+      ) : (
+        <Box>
+          <Button>
+            <Link  href={`${items.url}`} underline="hover" passhref="true">
+              {items?.title}
+            </Link>
+            {/* <a href={`${items.url}`}> {items?.title}</a> */}
+          </Button>
+        </Box>
+      )}
+    </List>
   );
 };
 
-
-
-export default MenuItem
+export default MenuItems;

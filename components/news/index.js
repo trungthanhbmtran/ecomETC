@@ -39,12 +39,13 @@ const New = ({data}) => {
             {/* <Grid item md={12} lg={12}>
                         <ListNews key={data.id} time={data.time}  title={data.title} />
                     </Grid> */}
-                {
-                    data.subcontent.map(e => (
+                { 
+                     data.subcontent.map(e => (
                         <Grid key={e.id} item md={12} lg={12}>
                                   <ListNews  group={data.group} time={e.time} subid={e.subid}  title={e.title}  />
                         </Grid>
                     ))
+                   
                 }
             </Grid>
 

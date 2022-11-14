@@ -26,19 +26,34 @@ export const BannerContent = styled(Box)(() => ({
   padding: "30px",
 }));
 
+
+export const BoxImageContent = styled(Box)(({src}) =>({
+  backgroundImage: `url(${src})`, 
+  opacity: 0.9,
+  backgroundSize : 'cover',
+  backgroundRepeat : 'no-repeat',
+  backgroundPosition : '50% 50%',
+  paddingBottom : 50
+}));
+
+
 export const BannerImage = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
   // backgroundImage: `url(${src})`,
   // backgroundRepeat: "no-repeat",
   // backgroundPosition: "center",
-  width: "500px",
-  [theme.breakpoints.down("md")]: {
-    width: "350px",
-  },
-  [theme.breakpoints.down("sm")]: {
-    width: "320px",
-    height: "300px",
-  },
+  maxWidth: '100%',
+  height : 'auto',
+  display : 'inline-block',
+  verticalAlign : 'middle',
+  // height : '400px',
+  // [theme.breakpoints.down("md")]: {
+  //   width: "350px",
+  // },
+  // [theme.breakpoints.down("sm")]: {
+  //   width: "320px",
+  //   height: "300px",
+  // },
 }));
 
 export const BannerTitle = styled(Typography)(({ matches, theme }) => ({

@@ -16,7 +16,7 @@ const Post = () => {
   const router = useRouter()
   const { slug } = router.query
 
-  console.log('router.query',slug)
+  // console.log('router.query',slug)
   // console.log('router.query',slug.at(0),slug.at(1))
 
   // console.log('router.query111', DataPost.find(x => x.title === `${slug.at(0).toString()}`))
@@ -26,6 +26,8 @@ const Post = () => {
 
 
   const DynamicHeader = dynamic(() => import(`../../components/newscomponent/${slug.at(0)}/${slug.at(1)}`))
+
+  // console.log('post',slug)
 
   return (
       // <DynamicHeader/>

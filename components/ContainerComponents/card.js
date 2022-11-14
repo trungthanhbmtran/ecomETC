@@ -4,17 +4,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea } from '@mui/material';
 
-const CardComponent = ({pathImg,tittle,Description}) =>{
+const CardComponent = ({pathImg,tittle="",Description=""}) =>{
     return(
-    <Card sx={{ maxWidth: 345 }} onClick={() => alert('hiện lên cái gì đây')}>
+    <Card sx={{ maxWidth: '100%' }} onClick={() => alert('hiện lên cái gì đây')}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height='100%'
           image={pathImg}
           alt="green iguana"
         />
-        <CardContent>
+        {tittle != "" ? (
+          <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {tittle}
           </Typography>
@@ -23,7 +24,8 @@ const CardComponent = ({pathImg,tittle,Description}) =>{
           </Typography>
           {/* <Button> Xem chi tiết</Button> */}
         </CardContent>
-      
+        ) : null
+      }
       </CardActionArea>
     </Card>
     )

@@ -10,12 +10,13 @@ export default function Index() {
   return (
     <Layout>
         {/* <Indexs/> */}
-        <Stack
+          <Stack
                 direction='column'
-                divider={<Divider />}
-                spacing={2}>
+                // divider={<Divider />}
+                spacing={10}
+                >
                 <SlideImages/>
-                {slideData.map(e => <BoxInfo key={e.id} tittle={e.tittle} path={e.path} component={e.component} />)}
+                {slideData.map(e => <BoxInfo key={e.id}  path={e.path} component={e.component} />)}
             </Stack>
     </Layout>
   )

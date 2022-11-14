@@ -1,10 +1,10 @@
 import { Typography, Grid, Stack } from "@mui/material"
 import Image from "next/image"
-import Layout from "../../Layout"
+import LayoutContent from "../../LayoutContent"
 
 const Maybienthe = () => {
     return (
-        <Layout>
+        <LayoutContent>
             <Stack spacing={2}>
                 <Typography variant='subtitle1'>PC Đắk Lắk: Bảo đảm việc cung cấp điện ngày một tốt hơn</Typography>
                 <Typography variant='h6'>Với mục tiêu cung cấp điện ngày càng ổn định cho khách hàng, Công ty Điện lực Đắk Lắk (Tổng công ty Điện lực miền Trung) thành lập Đội Sửa chữa nóng lưới điện từ ngày 12/4/2016.</Typography>
@@ -18,7 +18,7 @@ const Maybienthe = () => {
                 <Typography variant='subbody1'>Trao đổi với chúng tôi, ông Tạ Minh, Phó Giám đốc Công ty Điện lực Đắk Lắk cho biết: Sau khi được Tổng công ty Điện lực miền Trung đầu tư phương tiện sửa chữa điện nóng và tổ chức huấn luyện, sát hạch đạt yêu cầu, ngày 6/12/2016, Đội Sửa chữa nóng lưới điện của Công ty Điện lực Đắk Lắk chính thức thực hiện công tác đầu tiên trên lưới điện.
                 </Typography>
             </Stack>
-        </Layout>
+        </LayoutContent>
     )
 }
 

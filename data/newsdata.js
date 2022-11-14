@@ -1,6 +1,6 @@
 export  const NewsData = [
     { 
-        id: 1, 
+        id: 0, 
         group : 'ETC',
         title : 'Hoạt động về điện ',
         tillebaner : "Công nhân Điện lực cứu người bị tai nạn giao thông" ,
@@ -24,7 +24,7 @@ export  const NewsData = [
         ] 
     },
     { 
-        id: 2, 
+        id: 1, 
         group : 'IT',
         title : 'Hoạt động về CNTT&ATTT',
         tillebaner : "Bộ trưởng Bộ Thông tin và Truyền thông Nguyễn Mạnh Hùng đã có bài phát biểu tại Hội nghị chuyển đổi số ngành Ngân hàng" ,
@@ -62,7 +62,7 @@ export  const NewsData = [
         ] 
     },
     { 
-        id: 3, 
+        id: 2, 
         group : 'hmr',
         title : 'Tin tuyển dụng',
         tillebaner : "Cơ hội việc làm tại VNETC" ,
